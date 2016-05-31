@@ -3,15 +3,32 @@ import base64
 import hashlib
 
 STYLE = b"""
-@font-face {
-  font-family: 'blah';
-  font-style: normal;
-  font-weight: 400;
-  src: local('blah'), url(inconsolata.woff2) format('woff2');
+body {
+  font-family: sans-serif;
 }
 
+/* latin-ext */
+@font-face {
+  font-family: 'Aguafina Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Aguafina Script Regular'), local('AguafinaScript-Regular'), url(aguafinascript-regular-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Aguafina Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Aguafina Script Regular'), local('AguafinaScript-Regular'), url(aguafinascript-regular-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
 h1 {
-  font-family: 'blah';
+  font-family: 'Aguafina Script', cursive;
+  font-style: normal;
+  font-weight: 400;
 }
 """
 
@@ -22,7 +39,7 @@ INDEX = b"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="style.css" integrity="sha384-%s"/>
+<link rel="stylesheet" type="text/css" href="style.css" integrity="sha384-%s"/>
 </head>
 <body>
 <h1>
